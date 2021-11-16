@@ -3,6 +3,7 @@ const electron = require("electron");
 const app = electron.app;
 
 app.commandLine.appendSwitch('ignore-certificate-errors', true);
+app.commandLine.appendSwitch('host-rules', "Map *.home localhost:3000")
 
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;

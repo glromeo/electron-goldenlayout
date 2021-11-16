@@ -26,7 +26,7 @@ let sub = 0;
 layoutManager.registerComponent("testComponent", function (container, componentState) {
     container.element.innerHTML = `
 		<h2 style="color: white">${componentState.label}</h2>
-		<iframe src="https://${sub++}.localhost:3000/">
+		<iframe src="https://${sub++}.home/">
 	`;
 });
 
