@@ -1,9 +1,10 @@
 const electron = require("electron");
+
 // Module to control application life.
 const app = electron.app;
 
 app.commandLine.appendSwitch('ignore-certificate-errors', true);
-app.commandLine.appendSwitch('host-rules', "Map *.home localhost:3000")
+app.commandLine.appendSwitch('host-rules', "Map *.home player.vimeo.com")
 
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
@@ -18,6 +19,13 @@ const url = require("url");
 let mainWindow;
 
 async function createWindow() {
+
+    electron.session.defaultSession.webRequest.onBeforeSendHeaders({
+        urls: ["https://*.home/*", "https://player.vimeo.com/*"]
+    }, (details, callback)=>{
+        details.requestHeaders["Host"] = "player.vimeo.com";
+        callback({requestHeaders: details.requestHeaders})
+    })
 
     await require("esbuild").build({
         entryPoints: ["src/renderer.js"],
