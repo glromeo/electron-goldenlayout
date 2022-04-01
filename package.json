@@ -17,13 +17,13 @@
   "author": "GitHub",
   "license": "MIT",
   "dependencies": {
-    "golden-layout": "^2.4.0",
+    "golden-layout": "^2.5.0",
     "jquery": "^3.6.0",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "electron": "^15.3.1",
-    "esbuild": "^0.13.13",
-    "express": "^4.17.1"
+    "electron": "^18.0.1",
+    "esbuild": "^0.14.29",
+    "express": "^4.17.3"
   }
 }
